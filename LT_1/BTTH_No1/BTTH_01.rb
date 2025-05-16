@@ -34,7 +34,7 @@ class BTTH
     @part_size = (@a.length / @k.to_f).ceil
     @groups = @a.each_slice(@part_size).to_a
   end
-  def find_max
+  def multithreading
     # Duyệt qua mảng để tìm số lớn nhất
     results = Array.new(@k)
     results_total = Array.new(@k)  # Mảng chứa kết quả max của từng nhóm
@@ -52,20 +52,14 @@ class BTTH
     end
     # @max_int = results.max
     puts "Số lớn nhất = #{results.max}"
-    puts " Tổng = #{results_total.sum}"
+    puts " Tổng các phần tử= #{results_total.sum}"
 
   end
-  def tinh_tong
-    tong = 0
-    @a.each do |x|
-      tong += x
-    end
-    puts "Tổng các phần tử = #{tong}"
-  end
+
 end
 
 btth = BTTH.new(N = 10,K = 3)
 # btth.da_luong
 
-btth.find_max
+btth.multithreading
 # btth.tinh_tong
